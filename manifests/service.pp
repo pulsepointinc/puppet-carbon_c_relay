@@ -48,9 +48,8 @@ class carbon_c_relay::service (
       subscribe   => File[$carbon_c_relay::service_file],
       refreshonly => true,
       user        => 'root'
-    } ~>
-
-    service { $service_name:
+    }
+    ~> service { $service_name:
       ensure   => $service_ensure,
       enable   => $service_enable,
       provider => 'systemd',
